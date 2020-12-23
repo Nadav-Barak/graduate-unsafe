@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: @env@
+  application:
+    name: Basic
+  datasource:
+    name: mydb
+    type: com.alibaba.druid.pool.DruidDataSource
+    minIdle: 1
+    maxActive: 2
+    initialSize: 1
+    timeBetweenEvictionRunsMillis: 3000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    validationQuery: SELECT 'ZTM' FROM DUAL
+    testOnBorrow: false
+    testOnReturn: false
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+
+mybatis:
+  mapperLocations: classpath:mapper/**/*.xml
+  typeAliasesPackage: cn.strongme
+  configuration:
+      map-underscore-to-camel-case: true
+
+server:
+  port: 8888
+
+name:
+  chinese: 基础WEB系统
+
+wechat:
+  mp:
+    appId: wx87f23f9b45c8221a
+    secret: a49c116b2e2f397c6d457be97257395e
+    token: W9xJc9cSMxM9wnspSAUIwpNvsQmSSluP
+    aesKey: cR3gb3Q3B5D344NBf68l6z8TmgPRKt8N8R3L3lqtqDR
+
+version: @project.version@
+
